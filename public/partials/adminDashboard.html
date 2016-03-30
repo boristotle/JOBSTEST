@@ -1,0 +1,31 @@
+<div ng-controller='dashController'>
+<h1>Admin Dashboard</h1> <a href="/">Back to Job Search</a> <a ng-click="logout()" href="">Logout</a>
+
+
+<h4>Paste your google analytics code here:</h4>
+<textarea style="height:200px; width:500px" ng-model='analytics'></textarea>
+<p><input type='submit' ng-click='insertAnalytics()'></p>
+
+<a href="" ng-click="getUserStats()">Show User Stats</a>
+<p ng-if="userStats.length === 0">No stats yet</p>
+<table style="border:1px solid" ng-show="showStatsTable" ng-if="userStats.length > 0">
+  <th>
+    City/Zip 
+  </th>
+  <th>
+    Search Term
+  </th>
+  <th>
+    Search Date
+  </th>
+  <th>
+    IP Address
+  </th>
+<tr ng-repeat="stat in userStats">
+  <td style="border:1px solid">{{ stat.zipCode }}</td>
+  <td style="border:1px solid">{{ stat.jobTitle }}</td>
+  <td style="border:1px solid">{{ stat.searchDate}}</td>
+  <td style="border:1px solid">{{ stat.ipAddress }}</td>
+</tr>
+</table>
+</div>

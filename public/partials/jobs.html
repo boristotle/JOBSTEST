@@ -1,0 +1,19 @@
+  <h1>Find your dream job anywhere!</h1>
+  <input type-'text' placeholder='Job Title' ng-model='jobTitle'>
+  <input type='text' placeholder='Zip Code' ng-model='zipCode'>
+  <input type='submit' ng-click='searchJobs(); saveUserStats(); start = 0'>
+
+<div class='jobListing' ng-repeat="job in jobResults">
+<h3><a href="{{ job.url }}" target="_blank" ng-mousedown="indeedClick">{{ job.jobtitle }}</a></h3>
+<p>{{ job.company }} {{ job.formattedLocation }}</p>
+<p>Posted: {{ job.date }}</p>
+<p>{{ job.snippet }} <a href="{{ job.url }}" target="_blank" ng-mousedown="indeedClick">more>></a></p>
+</div>
+
+<button ng-click="changeStart(-10)" ng-show="start > 0">Previous Page</button> <button ng-click="changeStart(10)" ng-show="jobResults.length > 0">Next Page</button>  
+<p ng-click="showAdminLogin()"><a href="">Admin Login</a></p>
+
+<p id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
+href="http://www.indeed.com/" title="Job Search"><img
+src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
+vertical-align: middle;" alt="Indeed job search"></a></p>
