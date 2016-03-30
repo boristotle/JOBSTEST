@@ -1,3 +1,4 @@
 node_modules
 angular
 jquery-1.12.2.min.js
+.env
